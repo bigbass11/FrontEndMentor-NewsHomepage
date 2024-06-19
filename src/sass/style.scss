@@ -1,3 +1,35 @@
-p {
-    color: blue;
+// BEM naming convention: https://getbem.com/naming/
+.site-main {
+    display: grid;
+    background-color: azure;
+    padding: 2rem 10rem;
+    grid-template:
+      "nav nav" 10%
+      "main-article new-articles" 60%
+      "top-articles top-articles" 30%
+      / 2fr 1fr
+}
+
+div {
+    background-color: aquamarine;
+}
+
+nav {
+    background-color: rgb(238, 128, 128);
+    grid-area: nav;
+}
+
+.site-main__main-article {
+    grid-area: main-article;
+}
+
+.site-main__new-articles {
+    grid-area: new-articles;
+}
+
+.site-main__top-articles {
+    grid-area: top-articles;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
 }
