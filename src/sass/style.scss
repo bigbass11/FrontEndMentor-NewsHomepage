@@ -4,9 +4,9 @@
     background-color: azure;
     padding: 2rem 10rem;
     grid-template:
-      "nav nav" 10%
-      "main-article new-articles" 60%
-      "top-articles top-articles" 30%
+      "header header" 10%
+      "main-article new-articles" 70%
+      "top-articles top-articles" 20%
       / 2fr 1fr
 }
 
@@ -14,9 +14,13 @@ div {
     background-color: aquamarine;
 }
 
-nav {
+.site-main__header {
     background-color: rgb(238, 128, 128);
-    grid-area: nav;
+    grid-area: header;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .site-main__main-article {
