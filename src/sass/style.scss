@@ -1,6 +1,7 @@
 // BEM naming convention: https://getbem.com/naming/
 
 // Imports
+@import 'abstracts/colors';
 @import 'base/reset';
 
 
@@ -19,7 +20,7 @@ div {
 }
 
 // Header area
-.site-main__header {
+.header {
     border: solid;
     grid-area: header;
     display: flex;
@@ -33,24 +34,42 @@ div {
 }
 
 // Main article area
-.site-main__main-article {
+.main-article {
     grid-area: main-article;
     display: grid;
-}
+    grid-template:
+      "main-article__image main-article__image" auto
+      "main-article__title main-article__content" auto
+      / 1fr 1fr;
 
-.main-article__title {
-    font: 3rem;
-}
+    &__image {
+        grid-area: main-article__image;
+    }
 
+    &__title {
+        grid-area: main-article__title;
+        font-size: 3rem;
+    }
+
+    &__content {
+        grid-area: main-article__content;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__button {
+        border-radius: 0.25rem;
+        background-color: $main-article-button-color;
+    }
+}
 
 // New articles area (right side of page)
-.site-main__new-articles {
+.new-articles {
     grid-area: new-articles;
 }
 
-
 // Top articles area (bottom of page)
-.site-main__top-articles {
+.top-articles {
     grid-area: top-articles;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
