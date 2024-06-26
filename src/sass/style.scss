@@ -93,17 +93,15 @@ div, header {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
-    height: 100%;
 
     &__card { // main container
-        height: 100%;
         display: flex;
         gap: 1rem;
     }
 
     &__image {
-        height: 100%; /* Make image height 100% of the container */
-        object-fit: cover;
+        max-width: 33%;
+        object-fit: contain;
     }
 
     &__text { 
