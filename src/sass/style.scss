@@ -6,12 +6,16 @@
 @import 'base/reset';
 
 body {
-    display: flex;
-    justify-content: center; /* centers items horizontally */
     font-family: 'Inter', sans-serif;
 }
 
+p {
+    font-size: 0.75rem;
+    color: rgb(81, 81, 81);
+}
+
 .site-main {
+    margin: auto auto;/* centers items horizontally */
     border: solid 1px black;
     width: 80vw;
     display: grid;
@@ -97,15 +101,20 @@ div, header {
     &__card { // main container
         display: flex;
         gap: 1rem;
+        max-height: 100%;
+        max-width: none !important;
     }
 
     &__image {
-        max-width: 33%;
+        max-height: 100%;
+        max-width: none !important;
         object-fit: contain;
     }
 
     &__text { 
-        
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: space-between;
     }
 
     &__number {
@@ -115,7 +124,8 @@ div, header {
     }
 
     &__title {
-        //
+        font-size: 1rem;
+        font-weight: bold;
     }
 
     &__paragraph {
