@@ -5,33 +5,59 @@
 @import 'abstracts/colors';
 @import 'base/reset';
 
-body {
-    font-family: 'Inter', sans-serif;
+
+// Sets rem size
+html {
+    font-size: 12px;
 }
 
-p {
-    font-size: 0.75rem;
-    color: rgb(81, 81, 81);
+body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.15rem;
+}
+
+p:not(.color-inverse) {
+    color: $text-color;
+}
+
+p.color-inverse {
+    color: $text-color-inverse-color;
 }
 
 .site-main {
-    margin: auto auto;/* centers items horizontally */
     border: solid 1px black;
-    width: 80vw;
+    width: 65vw;
+    margin: 3rem 0 3rem;
     display: grid;
     padding: 3rem 10rem;
+    // margin: 5rem 0;
     grid-template:
       "header header" min-content
       "main-article new-articles" min-content
-      "top-articles top-articles" 125px
+      "top-articles top-articles" auto
       / 2fr 1fr;
     column-gap: 2rem;
     row-gap: 4rem;
 }
 
-div, header {
-    border: solid 1px lightblue;
-}
+// TEMPORARY DELETE AFTER
+// div, header {
+//     border: solid 1px lightblue;
+// }
 
 // Header area
 .header {
@@ -43,7 +69,9 @@ div, header {
 
 .nav__nav-list {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    justify-content: end;
+    column-gap: 2rem;
 }
 
 // Main article area
@@ -54,7 +82,7 @@ div, header {
       "main-article__image main-article__image" auto
       "main-article__title main-article__content" auto
       / 1fr 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
 
     &__image {
         grid-area: main-article__image;
@@ -65,10 +93,9 @@ div, header {
         display: flex;
         justify-content: left;
         align-items: center;
-        font-size: 3rem;
-        // padding: 1.5rem 1rem;
         line-height: 0.9;
-        padding-right: 4rem;
+        padding-right: 1rem;
+        font-weight: 800;
     }
 
     &__content {
@@ -79,32 +106,62 @@ div, header {
     }
 
     &__button {
-        border-radius: 0.05rem;
         background-color: $main-accent-color;
-        width: 45%;
+        width: fit-content;
+        letter-spacing: 0.25em;
+        padding: 0.75rem 2rem;
         margin-top: 1rem;
+        font-weight: 800;
     }
 }
 
 // New articles area (right side of page)
 .new-articles {
     grid-area: new-articles;
+    padding: 1.5rem 1rem;
+    background-color: $dark-dark-dark-blue;
+    
+    &__title {
+        color: $secondary-accent-color;
+    };
+    
+    &__card {
+        margin-top: 20px;
+        &:not(:last-child)::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: lightgray;
+            margin-top: 20px;
+        }
+    }
+    
+    &-card__title {
+        color: white;
+        margin-bottom: 0.5rem;
+    }
 }
 
 // Top articles area (bottom of page)
 .top-articles {
     grid-area: top-articles;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
     gap: 1rem;
-
-
+    max-height: 115px;
+    
+    
+    
     &__card { // main container
+        flex: 1;
         display: flex;
         // gap: 1rem;
         max-height: 100%;
         max-width: none !important;
         overflow: hidden;
+        // Adds ellipsis (...) to overflowed text
     }
 
     &__image {
@@ -118,17 +175,20 @@ div, header {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        overflow: hidden;
+        // white-space:nowrap;
+        text-overflow: ellipsis; 
+        
     }
 
     &__number {
-        font-size: 2rem;
         font-weight: bolder;
         color: $main-accent-color;
     }
 
     &__title {
-        font-size: 1rem;
-        font-weight: bold;
+        margin-bottom: 0.5rem;
     }
 
     &__paragraph {

@@ -36,7 +36,24 @@ p, h1, h2, h3, h4, h5, h6 {
 // 8. Get rid of styling on lists
 ul, ol {
   list-style: none;
+
 }
+
+// 9. 
+a {
+  text-decoration: none;
+  color: inherit; 
+  a:visited { 
+  color: inherit;
+  }
+}
+
+// 10. Get rid of button border
+button {
+  border: none;
+}
+
+
 
 // 8. Create a root stacking context
 // #root, #__next {
